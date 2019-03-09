@@ -7,7 +7,7 @@
 }
 
 .task-form {
-  width: 100%;
+  width: 80%;
   display: flex;
   justify-content: center;
 }
@@ -20,6 +20,10 @@
   width: 60%;
 }
 
+.submit-button {
+  padding-left: 2em;
+}
+
 .task-table {
   display: flex;
   flex-direction: column;
@@ -28,7 +32,6 @@
 }
 
 .task-list {
-  list-style: none;
   padding: 0;
   width: 60%;
 }
