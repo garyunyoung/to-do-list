@@ -12,11 +12,20 @@ class App extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.setState({ list: [...this.state.list, this.state.currentValue], currentValue: '' });
+    this.setState({
+      list: [...this.state.list, this.state.currentValue],
+      currentValue: ""
+    });
   };
 
   handleInputData = event => {
     this.setState({ currentValue: event.target.value });
+  };
+
+  onDelete = i => {
+    let modifiedTaskList = [...this.state.list];
+    modifiedTaskList.splice(i, 1);
+    this.setState({ list: modifiedTaskList });
   };
 
   render() {
@@ -31,13 +40,22 @@ class App extends React.Component {
             onChange={this.handleInputData}
             value={this.state.currentValue}
           />
-          <input className="submit-button" type="submit" value="add!"
-          />
+          <input className="submit-button" type="submit" value="add!" />
         </form>
         <section className="task-table">
           <ul className="task-list">
             {this.state.list.map((listItem, i) => {
-              return <li key={i} className="task-list__item">{listItem}</li>;
+              return (
+                <li key={i} className="task-list__item">
+                  {listItem}
+                  <button
+                    className="delete-button"
+                    onClick={() => this.onDelete(i)}
+                  >
+                    x
+                  </button>
+                </li>
+              );
             })}
           </ul>
         </section>

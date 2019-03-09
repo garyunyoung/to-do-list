@@ -21,6 +21,7 @@
 }
 
 .submit-button {
+  padding: 0;
   padding-left: 2em;
 }
 
@@ -34,6 +35,16 @@
 .task-list {
   padding: 0;
   width: 60%;
+}
+
+.task-list__item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.delete-button {
+  padding: 0;
+  padding-left: 1em;
 }
 
 .task-list__item {
