@@ -1,4 +1,5 @@
 import React from "react";
+import * as R from "ramda";
 import "./App.css";
 
 class App extends React.Component {
@@ -6,26 +7,26 @@ class App extends React.Component {
     super(props);
     this.state = {
       list: [],
-      currentValue: []
+      currentValue: ''
     };
   }
 
   handleSubmit = event => {
     event.preventDefault();
-    this.setState({
-      list: [...this.state.list, this.state.currentValue],
-      currentValue: ""
-    });
-  };
+    if (R.trim(this.state.currentValue) !== "") {
+      this.setState({
+        list: [...this.state.list, this.state.currentValue],
+        currentValue: ""
+      })
+    }
+  }
 
   handleInputData = event => {
     this.setState({ currentValue: event.target.value });
   };
 
   onDelete = i => {
-    let modifiedTaskList = [...this.state.list];
-    modifiedTaskList.splice(i, 1);
-    this.setState({ list: modifiedTaskList });
+    this.setState({ list: R.remove(i, 1, [...this.state.list]) });
   };
 
   render() {
