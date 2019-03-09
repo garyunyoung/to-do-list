@@ -6,6 +6,12 @@
   padding-top: 30%;
 }
 
+.task-form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 .task-input {
   font-size: 1em;
   border: 0;
@@ -28,5 +34,5 @@
 }
 
 .task-list__item {
-  padding-bottom: 3px;
+  padding-bottom: 5px;
 }
