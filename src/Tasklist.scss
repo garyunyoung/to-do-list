@@ -1,6 +1,7 @@
 @import "Variables";
 
 .task-list {
+    color: $text-color;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -11,14 +12,14 @@
       flex-flow: column nowrap;
       justify-content: center;
       padding: 0;
-      width: 60%;
+      width: 65%;
     }
   
     .task-list__clear-button {
       margin: 10px auto;
-      border: none;
-      background-color: $button-color;
-  
+      font-size: 1em;
+      color: $shadow-color;
+
       &.hidden {
         display: none;
       }
@@ -27,6 +28,7 @@
     .task-list__comment {
       font-size: 0.8em;
       text-align: center;
+      font-style: italic;
     }
   }
   

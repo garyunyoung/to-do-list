@@ -7,7 +7,7 @@ export default function Task(props) {
     <li className="task">
       <span className="task__description">{props.description}</span>
       <button className="task__delete-button" onClick={props.onDelete}>
-        x
+      <i class="fas fa-check"></i>
       </button>
     </li>
   );

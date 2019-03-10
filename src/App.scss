@@ -1,29 +1,49 @@
 @import "Variables";
 
+
 .task-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
-  padding-top: 30%;
+  padding-top: 20%;
+}
+
+.task-header {
+  margin: 0 auto 25px;
+  text-transform: uppercase;
 }
 .task-form {
   display: flex;
-  justify-content: space-between;
-  width: 60%;
+  width: 65%;
 
   .task-form__input {
+    background-color: $primary-color;
     border: 0;
     font-size: 1em;
-    border-bottom: 2px dotted black;
+    color: $text-color;
+    border-bottom: 1px dashed $shadow-color;
     outline: none;
     width: 100%;
+    font-style: italic;
+
+
+    &::placeholder {
+      color: $text-color;
+      font-style: italic;
+    }
   }
 
-  .task-form__submit-button {
-    margin: auto;
-    margin-left: 1em;
-    border: none;
-    background-color: $button-color;
+  .task-form__submit {
+    padding: 0;
+    margin: 0 2px 0 10px;
+
+    .task-form__submit-button {
+      font-size: 1.5em;
+      color: $shadow-color;
+    }
   }
 }
+
+
+

@@ -28,7 +28,7 @@ function ClearButton(props) {
       className={`task-list__clear-button ${buttonState}`}
       onClick={props.onClear}
     >
-      clear items!
+    <i className="far fa-trash-alt task-list__clear-button"></i>
     </button>
   );
 }

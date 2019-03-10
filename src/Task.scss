@@ -1,3 +1,5 @@
+@import "Variables";
+
 .task {
   display: flex;
   justify-content: space-between;
@@ -6,15 +8,20 @@
 
   .task__description {
     flex-grow: 1;
+    word-break: break-all;
   }
 
   .task__delete-button {
     padding: 0;
     padding-left: 1em;
+    color: $shadow-color;
+    font-size: 1em;
   }
 }
 
-// .task:before {
-//   content: '•';
-//   margin-right: 0.5em;
-// }
+.task:before {
+  content: '•';
+  margin-right: 0.7em;
+  color: $shadow-color;
+  display: none;
+}

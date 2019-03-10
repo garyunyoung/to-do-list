@@ -45,23 +45,25 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="task-container">
+      <h1 className="task-header">to do list</h1>
         <form className="task-form" onSubmit={this.handleSubmit}>
           <input
             className="task-form__input"
             type="text"
             name="newTask"
-            placeholder="your task here"
+            placeholder="add your task here"
             autoComplete="off"
             autoFocus
             onChange={this.handleInputData}
             value={this.state.currentValue}
             ref={this.inputRef}
           />
-          <input
-            className="task-form__submit-button"
+          <button
+            className="task-form__submit"
             type="submit"
-            value="add!"
-          />
+          >
+          <i class="fas fa-plus task-form__submit-button"></i>
+          </button>
         </form>
         <TaskList
           list={this.state.list}
