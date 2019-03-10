@@ -7,7 +7,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       list: [],
-      currentValue: ''
+      currentValue: ""
     };
   }
 
@@ -17,9 +17,9 @@ class App extends React.Component {
       this.setState({
         list: [...this.state.list, this.state.currentValue],
         currentValue: ""
-      })
+      });
     }
-  }
+  };
 
   handleInputData = event => {
     this.setState({ currentValue: event.target.value });
@@ -28,6 +28,10 @@ class App extends React.Component {
   onDelete = i => {
     this.setState({ list: R.remove(i, 1, [...this.state.list]) });
   };
+
+  onClear = () => {
+    this.setState({list: []})
+  }
 
   render() {
     return (
@@ -38,6 +42,7 @@ class App extends React.Component {
             type="text"
             name="newTask"
             placeholder="your task here"
+            autoComplete="off"
             onChange={this.handleInputData}
             value={this.state.currentValue}
           />
@@ -47,10 +52,10 @@ class App extends React.Component {
           <ul className="task-list">
             {this.state.list.map((listItem, i) => {
               return (
-                <li key={i} className="task-list__item">
-                  {listItem}
+                <li key={i} className="task">
+                  <span className="task__description">{listItem}</span>
                   <button
-                    className="delete-button"
+                    className="task__delete-button"
                     onClick={() => this.onDelete(i)}
                   >
                     x
@@ -58,6 +63,14 @@ class App extends React.Component {
                 </li>
               );
             })}
+            <button
+              className={`clear-list-button ${
+                this.state.list.length === 0 ? "hidden" : ""
+              }`}
+              onClick={this.onClear}
+            >
+              clear items!
+            </button>
           </ul>
         </section>
       </div>
