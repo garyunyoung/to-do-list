@@ -28,12 +28,12 @@
 .submit-button {
   margin: auto;
   margin-left: 1em;
-  border: 1px solid black;
+  border: none;
 }
 
 .clear-list-button {
-  margin: auto;
-  border: 1px solid black;
+  margin: 10px auto;
+  border: none;
 }
 
 .task-table {
@@ -58,10 +58,10 @@
   padding-bottom: 10px;
 }
 
-.task:before {
+/* .task:before {
   content: '•';
   margin-right: 0.5em;
-}
+} */
 
 .task__description {
   flex-grow: 1;
@@ -74,4 +74,9 @@
 
 .hidden {
   display: none;
+}
+
+.comment {
+  font-size: 0.8em;
+  text-align: center;
 }

@@ -71,6 +71,8 @@ class App extends React.Component {
             >
               clear items!
             </button>
+          {this.state.list.length === 0 ? 
+          <p className="comment">there are no tasks in your list!</p> : null}
           </ul>
         </section>
       </div>
