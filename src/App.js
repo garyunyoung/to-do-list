@@ -64,7 +64,7 @@ class App extends React.Component {
               );
             })}
             <button
-              className={`clear-list-button ${
+              className={`clear-lispwdt-button ${
                 this.state.list.length === 0 ? "hidden" : ""
               }`}
               onClick={this.onClear}
