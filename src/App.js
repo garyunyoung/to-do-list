@@ -1,4 +1,5 @@
 import React from "react";
+import Task from "./Task";
 import * as R from "ramda";
 import "./App.css";
 
@@ -28,6 +29,7 @@ class App extends React.Component {
 
   onDelete = i => {
     this.setState({ list: R.remove(i, 1, [...this.state.list]) });
+    this.inputRef.current.focus();
   };
 
   onClear = () => {
@@ -58,19 +60,13 @@ class App extends React.Component {
         </form>
         <section className="task-list">
           <ul className="task-list__list">
-            {this.state.list.map((listItem, i) => {
-              return (
-                <li key={i} className="task">
-                  <span className="task__description">{listItem}</span>
-                  <button
-                    className="task__delete-button"
-                    onClick={() => this.onDelete(i)}
-                  >
-                    x
-                  </button>
-                </li>
-              );
-            })}
+            {this.state.list.map((listItem, i) => (
+              <Task
+                key={i}
+                description={listItem}
+                onDelete={() => this.onDelete(i)}
+              />
+            ))}
             <button
               className={`task-list__clear-button ${
                 this.state.list.length === 0 ? "hidden" : ""

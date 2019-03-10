@@ -57,24 +57,3 @@ $button-color: white;
     text-align: center;
   }
 }
-
-.task {
-  display: flex;
-  justify-content: space-between;
-  list-style: inside;
-  padding-bottom: 10px;
-
-  .task__description {
-    flex-grow: 1;
-  }
-
-  .task__delete-button {
-    padding: 0;
-    padding-left: 1em;
-  }
-}
-
-// .task:before {
-//   content: '•';
-//   margin-right: 0.5em;
-// }
