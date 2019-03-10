@@ -35,10 +35,10 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="task-container">
-        <form className="task-form" onSubmit={this.handleSubmit}>
+      <div className="task__container">
+        <form className="task__form" onSubmit={this.handleSubmit}>
           <input
-            className="task-input"
+            className="task__input"
             type="text"
             name="newTask"
             placeholder="your task here"
@@ -46,10 +46,10 @@ class App extends React.Component {
             onChange={this.handleInputData}
             value={this.state.currentValue}
           />
-          <input className="submit-button" type="submit" value="add!" />
+          <input className="task__submit-button" type="submit" value="add!" />
         </form>
-        <section className="task-table">
-          <ul className="task-list">
+        <section className="task__table">
+          <ul className="task__list">
             {this.state.list.map((listItem, i) => {
               return (
                 <li key={i} className="task">
@@ -64,7 +64,7 @@ class App extends React.Component {
               );
             })}
             <button
-              className={`clear-lispwdt-button ${
+              className={`clear-button ${
                 this.state.list.length === 0 ? "hidden" : ""
               }`}
               onClick={this.onClear}
