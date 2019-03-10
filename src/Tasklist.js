@@ -14,8 +14,8 @@ export default function TaskList(props) {
             onDelete={() => props.onDelete(i)}
           />
         ))}
-        <ClearButton list={props.list} onClear={props.onClear} />
         <EmptyListComment visible={props.list.length === 0} />
+        <ClearButton list={props.list} onClear={props.onClear} />
       </ul>
     </section>
   );

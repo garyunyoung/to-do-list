@@ -1,10 +1,27 @@
 @import "Variables";
 
+@keyframes fadeIn {
+  0% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+
+  50% {
+    transform: translateY(5px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
 .task {
   display: flex;
   justify-content: space-between;
   list-style: inside;
   padding-bottom: 10px;
+  animation: fadeIn .5s;
 
   .task__description {
     flex-grow: 1;
@@ -17,11 +34,4 @@
     color: $shadow-color;
     font-size: 1em;
   }
-}
-
-.task:before {
-  content: '•';
-  margin-right: 0.7em;
-  color: $shadow-color;
-  display: none;
 }
