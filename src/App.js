@@ -1,9 +1,9 @@
 import React from "react";
-import Task from "./Task";
+import TaskList from "./TaskList";
 import * as R from "ramda";
 import "./App.css";
 
-class App extends React.Component {
+export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.inputRef = React.createRef();
@@ -15,6 +15,7 @@ class App extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
+    this.focusInput();
     if (R.trim(this.state.currentValue) !== "") {
       this.setState({
         list: [...this.state.list, this.state.currentValue],
@@ -29,11 +30,15 @@ class App extends React.Component {
 
   onDelete = i => {
     this.setState({ list: R.remove(i, 1, [...this.state.list]) });
-    this.inputRef.current.focus();
+    this.focusInput();
   };
 
   onClear = () => {
     this.setState({ list: [] });
+    this.focusInput();
+  };
+
+  focusInput = () => {
     this.inputRef.current.focus();
   };
 
@@ -58,33 +63,12 @@ class App extends React.Component {
             value="add!"
           />
         </form>
-        <section className="task-list">
-          <ul className="task-list__list">
-            {this.state.list.map((listItem, i) => (
-              <Task
-                key={i}
-                description={listItem}
-                onDelete={() => this.onDelete(i)}
-              />
-            ))}
-            <button
-              className={`task-list__clear-button ${
-                this.state.list.length === 0 ? "hidden" : ""
-              }`}
-              onClick={this.onClear}
-            >
-              clear items!
-            </button>
-            {this.state.list.length === 0 ? (
-              <p className="task-list__comment">
-                there are no tasks in your list!
-              </p>
-            ) : null}
-          </ul>
-        </section>
+        <TaskList
+          list={this.state.list}
+          onClear={this.onClear}
+          onDelete={this.onDelete}
+        />
       </div>
     );
   }
 }
-
-export default App;
