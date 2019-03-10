@@ -1,87 +1,82 @@
-/* * {
-  outline: 1px solid red;
-} */
-
 $button-color: white;
 
-.task__container {
+.task-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
   padding-top: 30%;
+}
+.task-form {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
 
-  .task__form {
-    display: flex;
-    justify-content: space-between;
-    width: 60%;
+  .task-form__input {
+    border: 0;
+    font-size: 1em;
+    border-bottom: 2px dotted black;
+    outline: none;
+    width: 100%;
 
-    .task__input {
-      border: 0;
-      font-size: 1em;
-      border-bottom: 2px dotted black;
-      outline: none;
-      width: 100%;
-    }
+  }
+
+  .task-form__submit-button {
+    margin: auto;
+    margin-left: 1em;
+    border: none;
+    background-color: $button-color;
   }
 }
 
-.task__table {
+.task-list {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
 
-  .task__list {
+  .task-list__list {
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     padding: 0;
     width: 60%;
-    
-    .task {
-      display: flex;
-      justify-content: space-between;
-      list-style: inside;
-      padding-bottom: 10px;
-      
-      .task__description {
-        flex-grow: 1;
-      }
-    }
+  }
 
-    .comment {
-      font-size: 0.8em;
-      text-align: center;
+  .task-list__clear-button {
+    margin: 10px auto;
+    border: none;
+    background-color: $button-color;
+    
+    &.hidden {
+      display: none;
     }
+  }
+
+  .task-list__comment {
+    font-size: 0.8em;
+    text-align: center;
   }
 }
 
-.task__submit-button {
-  margin: auto;
-  margin-left: 1em;
-  border: none;
-  background-color: $button-color;
+.task {
+  display: flex;
+  justify-content: space-between;
+  list-style: inside;
+  padding-bottom: 10px;
+
+  .task__description {
+    flex-grow: 1;
+  }
+
+  .task__delete-button {
+    padding: 0;
+    padding-left: 1em;
+  }
 }
 
-.task__clear-button {
-  margin: 10px auto;
-  border: none;
-  background-color: $button-color;
-}
 
-.task__delete-button {
-  padding: 0;
-  padding-left: 1em;
-}
-
-/* .task:before {
-  content: '•';
-  margin-right: 0.5em;
-} */
-
-
-.hidden {
-  display: none;
-}
-
+// .task:before {
+//   content: '•';
+//   margin-right: 0.5em;
+// }

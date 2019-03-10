@@ -30,26 +30,31 @@ class App extends React.Component {
   };
 
   onClear = () => {
-    this.setState({list: []})
-  }
+    this.setState({ list: [] });
+  };
 
   render() {
     return (
-      <div className="task__container">
-        <form className="task__form" onSubmit={this.handleSubmit}>
+      <div className="task-container">
+        <form className="task-form" onSubmit={this.handleSubmit}>
           <input
-            className="task__input"
+            className="task-form__input"
             type="text"
             name="newTask"
             placeholder="your task here"
             autoComplete="off"
+            autoFocus
             onChange={this.handleInputData}
             value={this.state.currentValue}
           />
-          <input className="task__submit-button" type="submit" value="add!" />
+          <input
+            className="task-form__submit-button"
+            type="submit"
+            value="add!"
+          />
         </form>
-        <section className="task__table">
-          <ul className="task__list">
+        <section className="task-list">
+          <ul className="task-list__list">
             {this.state.list.map((listItem, i) => {
               return (
                 <li key={i} className="task">
@@ -64,15 +69,18 @@ class App extends React.Component {
               );
             })}
             <button
-              className={`clear-button ${
+              className={`task-list__clear-button ${
                 this.state.list.length === 0 ? "hidden" : ""
               }`}
               onClick={this.onClear}
             >
               clear items!
             </button>
-          {this.state.list.length === 0 ? 
-          <p className="comment">there are no tasks in your list!</p> : null}
+            {this.state.list.length === 0 ? (
+              <p className="task-list__comment">
+                there are no tasks in your list!
+              </p>
+            ) : null}
           </ul>
         </section>
       </div>
