@@ -18,8 +18,8 @@
 .env.test.local
 .env.production.local
 
-/src/App.css
-/src/App.css.map
+/src/*.css
+/src/*.css.map
 .sass-cache/
 
 npm-debug.log*
