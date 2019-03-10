@@ -5,6 +5,7 @@ import "./App.css";
 class App extends React.Component {
   constructor(props) {
     super(props);
+    this.inputRef = React.createRef();
     this.state = {
       list: [],
       currentValue: ""
@@ -31,6 +32,7 @@ class App extends React.Component {
 
   onClear = () => {
     this.setState({ list: [] });
+    this.inputRef.current.focus();
   };
 
   render() {
@@ -46,6 +48,7 @@ class App extends React.Component {
             autoFocus
             onChange={this.handleInputData}
             value={this.state.currentValue}
+            ref={this.inputRef}
           />
           <input
             className="task-form__submit-button"
