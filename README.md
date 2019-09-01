@@ -2,4 +2,4 @@
 
 Practise using controlled inputs and state.
 
-Created using: React | SCSS
+Created using: React and SCSS
